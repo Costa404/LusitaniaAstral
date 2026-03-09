@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centro de Comando - Lusitânia Astral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-300 min-h-screen">
+        <nav class="bg-black/80 backdrop-blur-md p-4 border-b border-cyan-900 flex flex-col sm:flex-row flex-wrap justify-between items-center sticky top-0 z-50 gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin"></div>
+            <div class="text-2xl font-bold text-cyan-400 tracking-[0.2em] uppercase cursor-default">
+            Lusitânia<span class="text-white">Astral</span>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 font-tech">
+            <a href="homepage.html" class="text-sm text-cyan-400 hover:text-white uppercase tracking-wider transition-colors border-b border-transparent hover:border-cyan-400 pb-1">
+            Rede Central
+            </a>
+            
+            <a href="gestao.html" class="text-sm text-cyan-400 hover:text-white uppercase tracking-wider transition-colors border-b border-transparent hover:border-cyan-400 pb-1">
+            Centro de Comando
+            </a>
+
+            <a href="homepage.html" class="text-sm bg-transparent border border-fuchsia-500 hover:bg-fuchsia-900/50 text-fuchsia-400 px-4 py-2 uppercase tracking-wide transition-all neon-border ml-2">
+            [ Sair do Terminal ]
+            </a>
+        </div>
+        </nav>
+
+    <header class="text-center py-10 px-4">
+      <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase tracking-widest mb-2">
+        Centro de Comando
+      </h1>
+      <p class="text-orange-200 font-tech tracking-wider">Gestão Administrativa de Ativos Planetários</p>
+    </header>
+
+    <main class="container mx-auto px-4 py-4">
+      <div class="overflow-x-auto bg-black/60 border border-cyan-900 p-1 neon-border">
+        <table class="w-full text-left font-tech text-sm md:text-base border-collapse">
+          <thead class="bg-cyan-950/50 text-cyan-300 border-b border-cyan-700 uppercase tracking-wider">
+            <tr>
+              <th class="p-4">ID</th>
+              <th class="p-4">Nome</th>
+              <th class="p-4">Vendedor</th>
+              <th class="p-4">Preço</th>
+              <th class="p-4">Status</th>
+              <th class="p-4 text-center">Ações Rápidas</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-planetas" class="divide-y divide-cyan-900/30 text-slate-300">
+            </tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="../js/gestao.js"></script>
+  </body>
+</html>

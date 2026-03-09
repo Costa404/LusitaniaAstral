@@ -8,35 +8,42 @@
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body class="text-slate-300 min-h-screen">
-    <nav
-      class="bg-black/80 backdrop-blur-md p-4 border-b border-cyan-900 flex flex-wrap justify-between items-center sticky top-0 z-50"
+    <nav class="bg-black/80 backdrop-blur-md p-4 border-b border-cyan-900 flex flex-col lg:flex-row flex-wrap justify-between items-center sticky top-0 z-50 gap-4">
+  
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin"></div>
+    <div class="text-2xl font-bold text-cyan-400 tracking-[0.2em] uppercase cursor-default">
+      Lusitânia<span class="text-white">Astral</span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center justify-center gap-6 font-tech">
+    <a href="homepage.html" class="text-sm text-white uppercase tracking-wider transition-colors border-b border-cyan-400 pb-1">
+      Rede Central
+    </a>
+    
+    <a href="gestao.html" class="text-sm text-cyan-400 hover:text-white uppercase tracking-wider transition-colors border-b border-transparent hover:border-cyan-400 pb-1">
+      Centro de Comando
+    </a>
+  </div>
+
+  <div class="flex gap-4 items-center font-tech">
+    <button
+      id="btn-moeda"
+      onclick="alternarMoeda()"
+      class="text-sm bg-transparent border border-cyan-500 hover:bg-cyan-900/50 text-cyan-400 px-4 py-2 uppercase tracking-wide transition-all neon-border"
     >
-      <div class="flex items-center gap-3">
-        <div
-          class="w-8 h-8 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin"
-        ></div>
-        <div
-          class="text-2xl font-bold text-cyan-400 tracking-[0.2em] uppercase"
-        >
-          Lusitânia<span class="text-white">Astral</span>
-        </div>
-      </div>
-      <div class="flex gap-4 items-center mt-4 sm:mt-0 font-tech">
-        <button
-          id="btn-moeda"
-          onclick="alternarMoeda()"
-          class="text-sm bg-transparent border border-cyan-500 hover:bg-cyan-900/50 text-cyan-400 px-4 py-2 uppercase tracking-wide transition-all neon-border"
-        >
-          [ Mostrar EUR ]
-        </button>
-        <div
-          class="text-sm text-fuchsia-400 border border-fuchsia-900 bg-fuchsia-950/30 px-3 py-2 uppercase"
-        >
-          Fav_Sync:
-          <span id="contador-favoritos" class="text-white font-bold">0</span>
-        </div>
-      </div>
-    </nav>
+      [ Mostrar EUR ]
+    </button>
+    <div
+      class="text-sm text-fuchsia-400 border border-fuchsia-900 bg-fuchsia-950/30 px-3 py-2 uppercase"
+    >
+      Fav_Sync:
+      <span id="contador-favoritos" class="text-white font-bold">0</span>
+    </div>
+  </div>
+
+</nav>
 
     <header class="text-center py-16 px-4 relative overflow-hidden">
       <div
