@@ -1,10 +1,27 @@
 const API_URL = "https://api.exemplo.com/planetas";
 
-// Fallback local (para não deixar a UI vazia se a API falhar)
 const registosDbFallback = [
-  { id: 1, nome: "Nova Sintra", vendedor: "Corporação Tordesilhas", preco: 7.5, status: "À Venda" },
-  { id: 2, nome: "Adamastor Prime", vendedor: "Sindicato Gama", preco: 13.2, status: "Vendido" },
-  { id: 3, nome: "Éden Lusitano", vendedor: "Mercadores Independentes", preco: 4.1, status: "À Venda" },
+  {
+    id: 1,
+    nome: "Nova Sintra",
+    vendedor: "Corporação Tordesilhas",
+    preco: 7.5,
+    status: "À Venda",
+  },
+  {
+    id: 2,
+    nome: "Adamastor Prime",
+    vendedor: "Sindicato Gama",
+    preco: 13.2,
+    status: "Vendido",
+  },
+  {
+    id: 3,
+    nome: "Éden Lusitano",
+    vendedor: "Mercadores Independentes",
+    preco: 4.1,
+    status: "À Venda",
+  },
 ];
 
 let registos = [];
@@ -21,7 +38,8 @@ function renderizarTabela() {
 
   registos.forEach((registo) => {
     // Definir cor do status
-    const statusColor = registo.status === "À Venda" ? "text-green-400" : "text-red-400";
+    const statusColor =
+      registo.status === "À Venda" ? "text-green-400" : "text-red-400";
 
     tbody.innerHTML += `
       <tr class="hover:bg-cyan-900/20 transition-colors">
@@ -44,7 +62,11 @@ function editarPlaneta(id) {
 }
 
 function eliminarPlaneta(id) {
-  if (confirm(`Aviso: Tem a certeza que deseja expurgar o Registo #${id} da base de dados?`)) {
+  if (
+    confirm(
+      `Aviso: Tem a certeza que deseja expurgar o Registo #${id} da base de dados?`,
+    )
+  ) {
     alert(`Registo #${id} eliminado com sucesso.`);
     // Lógica de eliminação real aqui (ex: filtrar o array e chamar renderizarTabela novamente)
   }

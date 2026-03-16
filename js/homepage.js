@@ -4,27 +4,23 @@ let mostrarEmEur = false;
 const imagemEspacoProfundo =
   "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80";
 
-// 1. Alteramos para let e começamos com um array vazio
 let inventario = [];
 
 let favoritos = JSON.parse(localStorage.getItem("favoritosLusitania")) || [];
 
-// 2. Tornamos a função assíncrona para esperar pela API
 async function inicializar() {
   atualizarContador();
 
   try {
-    // 3. Fazer o pedido à API exterior (Substitui este URL pelo teu)
-    const resposta = await fetch("https://api.exemplo.com/planetas");
-
+    const resposta = await fetch(
+      "https://formacoes-api.onrender.com/imobiliaria-interplanetaria",
+    );
     if (!resposta.ok) {
       throw new Error("Erro na rede: " + resposta.status);
     }
 
-    // 4. Guardar os dados recebidos na nossa variável
     inventario = await resposta.json();
 
-    // 5. Desenhar a grelha com os dados reais
     renderizarGrelha(inventario);
   } catch (erro) {
     console.error("Falha ao carregar os dados da API:", erro);
@@ -50,9 +46,11 @@ function renderizarGrelha(planetas) {
     const corEstrela = isFavorito ? "text-yellow-400" : "text-slate-400";
 
     // Cálculo de preço
-    let displayPreco = `${planeta.preco} BTC`;
+    let displayPreco = `${planeta.preco_btc} BTC`;
     if (mostrarEmEur) {
-      const precoEur = (planeta.preco * TAXA_BTC_EUR).toLocaleString("pt-PT");
+      const precoEur = (planeta.preco_btc * TAXA_BTC_EUR).toLocaleString(
+        "pt-PT",
+      );
       displayPreco = `${precoEur} €`;
     }
 
@@ -93,7 +91,6 @@ function alternarMoeda() {
   filtrarPlanetas();
 }
 
-// Filtro (Continua a funcionar sem ir à API de novo porque guardámos os dados na variável inventario)
 function filtrarPlanetas() {
   const recursoSelecionado = document.getElementById("filtro-recurso").value;
 

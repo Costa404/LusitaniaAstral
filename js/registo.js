@@ -1,4 +1,5 @@
-const API_URL = "https://api.exemplo.com/planetas";
+const API_URL =
+  "https://formacoes-api.onrender.com/imobiliaria-interplanetaria";
 
 const RECURSOS = [
   // Fauna
@@ -85,10 +86,14 @@ function preencherForm(planeta) {
   document.getElementById("status").value = planeta?.status ?? "À Venda";
   document.getElementById("galaxia").value = planeta?.galaxia ?? "";
 
-  const recursos = Array.isArray(planeta?.recursos) ? planeta.recursos.join(", ") : planeta?.recursos ?? "";
+  const recursos = Array.isArray(planeta?.recursos)
+    ? planeta.recursos.join(", ")
+    : (planeta?.recursos ?? "");
   document.getElementById("recursos").value = recursos;
 
-  const fotos = Array.isArray(planeta?.fotos) ? planeta.fotos.join(", ") : planeta?.fotos ?? "";
+  const fotos = Array.isArray(planeta?.fotos)
+    ? planeta.fotos.join(", ")
+    : (planeta?.fotos ?? "");
   document.getElementById("fotos").value = fotos;
 }
 
@@ -98,10 +103,13 @@ async function carregarPlanetaParaEdicao(id) {
 
   setAlerta({ tipo: "erro", mensagem: "" });
   try {
-    const resposta = await fetch(`${API_URL}/${encodeURIComponent(String(id))}`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
+    const resposta = await fetch(
+      `${API_URL}/${encodeURIComponent(String(id))}`,
+      {
+        method: "GET",
+        headers: { Accept: "application/json" },
+      },
+    );
     if (!resposta.ok) throw new Error(`GET falhou (${resposta.status})`);
     const planeta = await resposta.json();
     preencherForm(planeta);
@@ -118,7 +126,9 @@ async function carregarPlanetaParaEdicao(id) {
 async function submeterForm({ id, payload }) {
   const isEdicao = id !== null;
   const method = isEdicao ? "PATCH" : "POST";
-  const url = isEdicao ? `${API_URL}/${encodeURIComponent(String(id))}` : API_URL;
+  const url = isEdicao
+    ? `${API_URL}/${encodeURIComponent(String(id))}`
+    : API_URL;
 
   const resposta = await fetch(url, {
     method,
@@ -158,8 +168,12 @@ document.addEventListener("DOMContentLoaded", () => {
       preco: Number(preco),
       status: document.getElementById("status").value,
       galaxia: String(document.getElementById("galaxia").value || "").trim(),
-      recursos: normalizarListaSeparadaPorVirgulas(recursosRaw).map((r) => r.toLowerCase()),
-      fotos: normalizarListaSeparadaPorVirgulas(document.getElementById("fotos").value),
+      recursos: normalizarListaSeparadaPorVirgulas(recursosRaw).map((r) =>
+        r.toLowerCase(),
+      ),
+      fotos: normalizarListaSeparadaPorVirgulas(
+        document.getElementById("fotos").value,
+      ),
     };
 
     const btn = document.getElementById("btn-submit");
@@ -189,4 +203,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
