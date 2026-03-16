@@ -60,9 +60,9 @@ function renderizarGrelha(planetas) {
       <article class="glass-card rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col">
           <div class="relative h-48">
               <img src="${planeta.fotos[0]}" 
-                   onerror="this.onerror=null; this.src='${imagemEspacoProfundo}';" 
-                   alt="Vista de ${planeta.nome}" 
-                   class="w-full h-full object-cover">
+                  onerror="this.onerror=null; this.src='${imagemEspacoProfundo}';" 
+                  alt="Vista de ${planeta.nome}" 
+                  class="w-full h-full object-cover">
               <button onclick="alternarFavorito('${planeta.id}')" 
                       class="absolute top-2 right-2 bg-slate-900/80 p-2 rounded-full ${corEstrela} hover:text-yellow-300 transition text-xl leading-none">
                   ${iconeEstrela}
