@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       recursos: normalizarListaSeparadaPorVirgulas(recursosRaw).map((r) =>
         r.toLowerCase(),
       ),
-      fotos: normalizarListaSeparadaPorVirgulas(
+      fotos2: normalizarListaSeparadaPorVirgulas(
         document.getElementById("fotos").value,
       ),
     };
